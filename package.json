@@ -1,0 +1,22 @@
+{
+  "name": "pet-jiva",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "butterfly-dag": "^4.1.33",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14",
+    "vuetify": "^3.0.0-alpha.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vue-tsc": "^0.29.8"
+  }
+}

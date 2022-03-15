@@ -1,7 +1,7 @@
 import { Directive } from 'vue'
 
 function touchHandler(event: TouchEvent) {
-  var touches = event.changedTouches,
+  let touches = event.changedTouches,
     first = touches[0],
     type = ''
   switch (event.type) {
@@ -28,7 +28,6 @@ function touchHandler(event: TouchEvent) {
   })
 
   first.target.dispatchEvent(simulatedEvent)
-  event.preventDefault()
 }
 
 export const vSimulateMouseEvents: Directive = {

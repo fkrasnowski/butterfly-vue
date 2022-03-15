@@ -1,10 +1,11 @@
 <!-- Example butterfly endpoint -->
 <script setup lang="ts">
+import { vSimulateMouseEvents } from '../butterfly-vue'
 const { id } = defineProps<{ id: string }>()
 </script>
 
 <template>
-  <div :id="id" class="wrapper">
+  <div :id="id" class="wrapper" v-simulate-mouse-events="true">
     <v-tooltip anchor="top">
       <template #activator="{ props }">
         <div class="dot" v-bind="props">

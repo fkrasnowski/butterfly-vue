@@ -1,7 +1,7 @@
 <!-- Example butterfly node -->
 <script setup lang="ts">
 import { ref } from 'vue'
-import { NodeData } from '../butterfly-vue'
+import { NodeData, vSimulateMouseEvents } from '../butterfly-vue'
 
 const { id, top, left } =
   defineProps<{ id: string; top: number; left: number; nodeData: NodeData }>()
@@ -12,10 +12,16 @@ const emit = defineEmits<{
 }>()
 
 const isColorPickerOpen = ref(false)
+const logPush = () => console.log('push')
 </script>
 
 <template>
-  <v-card :id="id" class="card" :color="nodeData.color">
+  <v-card
+    :id="id"
+    class="card"
+    :color="nodeData.color"
+    v-simulate-mouse-events="true"
+  >
     <v-card-header>
       <v-card-header-text>Node {{ id }}</v-card-header-text>
     </v-card-header>

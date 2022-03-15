@@ -28,6 +28,9 @@ function touchHandler(event: TouchEvent) {
   })
 
   first.target.dispatchEvent(simulatedEvent)
+  if (event.type === 'touchmove') {
+    event.preventDefault()
+  }
 }
 
 export const vSimulateMouseEvents: Directive = {

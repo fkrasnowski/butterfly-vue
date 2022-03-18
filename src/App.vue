@@ -71,37 +71,39 @@ const addNode = (id: string, color: NodeData['color']) =>
       </v-btn-group>
 
       <div class="box">
-        <Butterfly
-          :controller="controller"
-          container-class="canvas"
-          :config="{
-            moveable: true,
-            disLinkable: true,
-            linkable: true,
-            draggable: true,
-            zoomable: false,
-            moveable: true,
-            theme: {
-              edge: {
-                arrow: true,
-                shapeType: 'AdvancedBezier',
+        <div class="box-inner">
+          <Butterfly
+            :controller="controller"
+            container-class="canvas"
+            :config="{
+              moveable: true,
+              disLinkable: true,
+              linkable: true,
+              draggable: true,
+              zoomable: false,
+              moveable: true,
+              theme: {
+                edge: {
+                  arrow: true,
+                  shapeType: 'AdvancedBezier',
+                },
               },
-            },
-          }"
-        >
-          <template #node="{ id, top, left }">
-            <card-node
-              :id="id"
-              v-model:node-data="controller.nodesData[id]"
-              :top="top"
-              :left="left"
-              @delete="controller.removeNode(id)"
-            />
-          </template>
-          <template #endpoint="{ id }">
-            <endpoint-dot :id="id" />
-          </template>
-        </Butterfly>
+            }"
+          >
+            <template #node="{ id, top, left }">
+              <card-node
+                :id="id"
+                v-model:node-data="controller.nodesData[id]"
+                :top="top"
+                :left="left"
+                @delete="controller.removeNode(id)"
+              />
+            </template>
+            <template #endpoint="{ id }">
+              <endpoint-dot :id="id" />
+            </template>
+          </Butterfly>
+        </div>
       </div>
     </v-main>
   </v-app>
@@ -110,10 +112,15 @@ const addNode = (id: string, color: NodeData['color']) =>
 <style scoped>
 .canvas {
   position: relative;
-  width: 100%;
+  width: 1500px;
   height: 500px;
+}
+
+.box-inner {
+  width: 100%;
   background-color: #cccccc;
   border-radius: 16px;
+  overflow: hidden;
 }
 
 .box {
